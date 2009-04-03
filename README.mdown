@@ -1,0 +1,17 @@
+# What is it?
+
+This is an xcode plug-in which makes writing Obj-C easier, by automatically inserting paired message sending brackets.
+
+# Installation
+
+1. Open the project and build the plug-in.
+2. Move the product (`XcodeBracketMatcher.pbplugin`) to `~/Library/Application Support/Developer/Shared/Xcode/Plug-ins` (create the directory if necessary).
+3. Restart Xcode.
+
+# Usage
+
+When editing an Objective-C(++) file, you can type a `]` to add a message to the current line. The plug-in will automatically look backwards to insert the opening bracket at the appropriate location.
+
+# Credit
+
+The bracket placement logic (i.e. most of the hard work) was already done by Joachim Mårtensson for the Objective-C TextMate bundle, found here inside the `parser.rb` script.
