@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		915F0B3C0F891F2600139C49 /* cocoa.txt.gz in Resources */ = {isa = PBXBuildFile; fileRef = 915F0B3B0F891F2600139C49 /* cocoa.txt.gz */; };
 		916F428C0F843B3100E18365 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 916F42880F843B3100E18365 /* InfoPlist.strings */; };
 		916F428E0F843B3100E18365 /* parser.rb in Resources */ = {isa = PBXBuildFile; fileRef = 916F428B0F843B3100E18365 /* parser.rb */; };
 		919D69020F844642007548E6 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 919D69010F844642007548E6 /* JRSwizzle.m */; };
@@ -19,6 +20,7 @@
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		8D5B49B6048680CD000E48DA /* XcodeBracketMatcher.pbplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XcodeBracketMatcher.pbplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		915F0B3B0F891F2600139C49 /* cocoa.txt.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = cocoa.txt.gz; sourceTree = "<group>"; };
 		916F42890F843B3100E18365 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
 		916F428A0F843B3100E18365 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		916F428B0F843B3100E18365 /* parser.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = parser.rb; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		916F427D0F843AF300E18365 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				915F0B3B0F891F2600139C49 /* cocoa.txt.gz */,
 				916F42880F843B3100E18365 /* InfoPlist.strings */,
 				916F428A0F843B3100E18365 /* Info.plist */,
 				916F428B0F843B3100E18365 /* parser.rb */,
@@ -153,6 +156,7 @@
 			files = (
 				916F428C0F843B3100E18365 /* InfoPlist.strings in Resources */,
 				916F428E0F843B3100E18365 /* parser.rb in Resources */,
+				915F0B3C0F891F2600139C49 /* cocoa.txt.gz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

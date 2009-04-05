@@ -135,19 +135,13 @@ class ObjcParser
     return false
   end
 
+  # escape text to make it useable in a shell script as one “word” (string)
+  def e_sh(str)
+    str.to_s.gsub(/(?=[^a-zA-Z0-9_.\/\-\x7F-\xFF\n])/n, '\\').gsub(/\n/, "'\n'").sub(/^$/, "''")
+  end
+
   def file_contains_selector?(methodName)
-    return false
-    # fileNames = ["#{ENV['TM_BUNDLE_SUPPORT']}/cocoa.txt.gz"]
-    # userMethods = "#{ENV['TM_PROJECT_DIRECTORY']}/.methods.TM_Completions.txt.gz"
-    # 
-    # fileNames += [userMethods] if File.exists? userMethods
-    # candidates = []
-    # fileNames.each do |fileName|
-    #   zGrepped = %x{zgrep ^#{e_sh methodName }[[:space:]] #{e_sh fileName }}
-    #   candidates += zGrepped.split("\n")
-    # end
-    # 
-    # return !candidates.empty?
+    return !%x{zgrep ^#{e_sh methodName}[[:space:]] #{e_sh File.dirname(__FILE__) + "/cocoa.txt.gz"}}.empty?
   end
 
   def selector_loop(l)
