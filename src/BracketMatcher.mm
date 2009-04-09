@@ -93,12 +93,17 @@ NSUInteger TextViewLineIndex (NSTextView* textView)
 	lineRange.length -= 1;
 	NSString* lineText            = [textView.textStorage.string substringWithRange:lineRange];
 	NSMutableString* resultString = [([self processLine:lineText insertionPoint:TextViewLineIndex(textView)] ?: lineText) mutableCopy];
-	NSRange caretOffset           = [resultString rangeOfString:@"$$caret$$"];
+	NSRange openingBracketOffset = [resultString rangeOfString:@"$$[$$"];
+	if(openingBracketOffset.location != NSNotFound)
+		[resultString replaceCharactersInRange:openingBracketOffset withString:@"["];
+	NSRange caretOffset = [resultString rangeOfString:@"$$caret$$"];
 	[resultString replaceCharactersInRange:caretOffset withString:@""];
 
 	[textView replaceCharactersInRange:lineRange withString:resultString];
 	[[textView.undoManager prepareWithInvocationTarget:textView] replaceCharactersInRange:NSMakeRange(lineRange.location, [resultString length]) withString:lineText];
 	[textView setSelectedRange:NSMakeRange(lineRange.location + caretOffset.location, 0)];
+	if(openingBracketOffset.location != NSNotFound)
+		[textView showFindIndicatorForRange:NSMakeRange(lineRange.location + openingBracketOffset.location, 1)];
 
 	return YES;
 }

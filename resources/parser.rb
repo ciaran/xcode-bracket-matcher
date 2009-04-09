@@ -281,10 +281,10 @@ if __FILE__ == $PROGRAM_NAME
   elsif !has_message && (b < caret_placement )
     print e_sn(line[0..b-1]) unless b == 0
     ins = (/\s/ =~ line[caret_placement].chr ? "$$caret$$]" : " $$caret$$]")
-    print "[" +e_sn(line[b..caret_placement]) + ins +e_sn(line[caret_placement+1..-1])
+    print "$$[$$" +e_sn(line[b..caret_placement]) + ins +e_sn(line[caret_placement+1..-1])
   elsif b < caret_placement    
     print e_sn(line[0..b-1]) unless b == 0
-    print "[" +e_sn(line[b..caret_placement]) +"]$$caret$$"+e_sn(line[caret_placement+1..-1]) 
+    print "$$[$$" +e_sn(line[b..caret_placement]) +"]$$caret$$"+e_sn(line[caret_placement+1..-1]) 
   else
     print e_sn(line[0..caret_placement])+"]$$caret$$"+e_sn(line[caret_placement+1..-1])
   end
