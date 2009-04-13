@@ -11,8 +11,16 @@
 
 static BracketMatcher* SharedInstance;
 
-@interface NSObject (XCTextStorageAdditions_Protocol)
+@interface NSObject (DevToolsInterfaceAdditions)
+// XCTextStorageAdditions
 - (id)language;
+
+// XCSourceCodeTextView
+- (BOOL)isInlineCompleting;
+- (id)codeAssistant;
+
+// PBXCodeAssistant
+- (void)liveInlineRemoveCompletion;
 @end
 
 @implementation NSTextView (BracketMatching)
@@ -82,6 +90,9 @@ NSUInteger TextViewLineIndex (NSTextView* textView)
 
 - (BOOL)insertBracketForTextView:(NSTextView*)textView
 {
+	if([textView isInlineCompleting])
+		[[textView codeAssistant] liveInlineRemoveCompletion];
+
 	if(![[textView selectedRanges] count])
 		return NO;
 
