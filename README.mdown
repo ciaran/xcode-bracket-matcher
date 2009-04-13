@@ -1,6 +1,7 @@
 # What is it?
 
 This is an xcode plug-in which makes writing Obj-C easier, by automatically inserting paired message sending brackets.
+Watch [the screencast](http://ciaranwal.sh/files/xcode-bracket-matcher.mov) to see how it works.
 
 # Installation
 
