@@ -108,8 +108,12 @@ NSUInteger TextViewLineIndex (NSTextView* textView)
 	NSRange caretOffset = [resultString rangeOfString:@"$$caret$$"];
 	[resultString replaceCharactersInRange:caretOffset withString:@""];
 
-	[textView replaceCharactersInRange:lineRange withString:resultString];
+	[textView.undoManager beginUndoGrouping];
+	[[textView.undoManager prepareWithInvocationTarget:textView] setSelectedRange:selectedRange];
 	[[textView.undoManager prepareWithInvocationTarget:textView] replaceCharactersInRange:NSMakeRange(lineRange.location, [resultString length]) withString:lineText];
+	[textView.undoManager endUndoGrouping];
+
+	[textView replaceCharactersInRange:lineRange withString:resultString];
 	[textView setSelectedRange:NSMakeRange(lineRange.location + caretOffset.location, 0)];
 
 	return YES;
