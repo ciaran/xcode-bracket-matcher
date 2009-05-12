@@ -100,8 +100,12 @@ NSUInteger TextViewLineIndex (NSTextView* textView)
 	NSRange lineRange = [textView.textStorage.string lineRangeForRange:selectedRange];
 	lineRange.length -= 1;
 	NSString* lineText            = [textView.textStorage.string substringWithRange:lineRange];
-	NSMutableString* resultString = [([self processLine:lineText insertionPoint:TextViewLineIndex(textView)] ?: lineText) mutableCopy];
-	NSRange caretOffset           = [resultString rangeOfString:@"$$caret$$"];
+	NSMutableString* resultString = [[self processLine:lineText insertionPoint:TextViewLineIndex(textView)] mutableCopy];
+
+	if(!resultString || [resultString isEqualToString:lineText])
+		return NO;
+
+	NSRange caretOffset = [resultString rangeOfString:@"$$caret$$"];
 	[resultString replaceCharactersInRange:caretOffset withString:@""];
 
 	[textView replaceCharactersInRange:lineRange withString:resultString];
