@@ -90,9 +90,6 @@ NSUInteger TextViewLineIndex (NSTextView* textView)
 
 - (BOOL)insertBracketForTextView:(NSTextView*)textView
 {
-	if([textView isInlineCompleting])
-		[[textView codeAssistant] liveInlineRemoveCompletion];
-
 	if(![[textView selectedRanges] count])
 		return NO;
 
