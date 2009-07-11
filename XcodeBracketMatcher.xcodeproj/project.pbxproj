@@ -121,6 +121,7 @@
 				8D5B49AF048680CD000E48DA /* Resources */,
 				8D5B49B1048680CD000E48DA /* Sources */,
 				8D5B49B3048680CD000E48DA /* Frameworks */,
+				9123DF8B1008FD98002FE022 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -161,6 +162,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9123DF8B1008FD98002FE022 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "INSTALL_DIR=\"$HOME/Library/Application Support/Developer/Shared/Xcode/Plug-ins/\"\n[[ -d \"$INSTALL_DIR/$FULL_PRODUCT_NAME\" ]] && rm -rf \"$INSTALL_DIR/$FULL_PRODUCT_NAME\"\n[[ ! -d \"$INSTALL_DIR\" ]] && mkdir \"$INSTALL_DIR\"\ncp -R \"$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME\" \"$INSTALL_DIR\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D5B49B1048680CD000E48DA /* Sources */ = {

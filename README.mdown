@@ -6,7 +6,7 @@ Watch [the screencast](http://ciaranwal.sh/files/xcode-bracket-matcher.mov) to s
 # Installation
 
 1. Open the project and build the plug-in (or download and extract it from the [Downloads page](http://github.com/ciaran/xcode-bracket-matcher/downloads)).
-2. Move the product (`XcodeBracketMatcher.pbplugin`) to `~/Library/Application Support/Developer/Shared/Xcode/Plug-ins` (create the directory if necessary).
+2. After a successful build the plug-in should automatically be installed; to install it manually move the product (`XcodeBracketMatcher.pbplugin`) to `~/Library/Application Support/Developer/Shared/Xcode/Plug-ins` (create the directory if necessary).
 3. Restart Xcode.
 
 # Usage
