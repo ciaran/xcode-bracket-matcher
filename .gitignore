@@ -3,3 +3,4 @@ build
 XcodeBracketMatcher.xcodeproj/*.perspectivev3
 XcodeBracketMatcher.xcodeproj/*.pbxuser
 XcodeBracketMatcher.xcodeproj/*.mode2v3
+XcodeBracketMatcher.xcodeproj/*.mode1v3
