@@ -23,15 +23,16 @@ static BracketMatcher* SharedInstance;
 - (void)liveInlineRemoveCompletion;
 @end
 
+static NSArray* BracketedLanguages;
+
 @implementation NSTextView (BracketMatching)
 - (void)BracketMatching_keyDown:(NSEvent*)event
 {
 	BOOL didInsert = NO;
-
 	if([[event characters] isEqualToString:@"]"])
 	{
 		NSString* language = [[self textStorage] language];
-		if([language isEqualToString:@"xcode.lang.objcpp"] || [language isEqualToString:@"xcode.lang.objc"])
+		if([BracketedLanguages containsObject:language])
 			didInsert = [[BracketMatcher sharedInstance] insertBracketForTextView:self];
 	}
 
@@ -48,6 +49,8 @@ static BracketMatcher* SharedInstance;
 
 	if([NSClassFromString(@"XCSourceCodeTextView") jr_swizzleMethod:@selector(keyDown:) withMethod:@selector(BracketMatching_keyDown:) error:NULL])
 		NSLog(@"BracketMatcher loaded");
+
+	BracketedLanguages = [[NSArray alloc] initWithObjects:@"xcode.lang.objcpp", @"xcode.lang.objc", @"xcode.lang.objj", nil];
 }
 
 + (BracketMatcher*)sharedInstance

@@ -11,7 +11,7 @@ Watch [the screencast](http://ciaranwal.sh/files/xcode-bracket-matcher.mov) to s
 
 # Usage
 
-When editing an Objective-C(++) file, you can type a `]` to add a message to the current line. The plug-in will automatically look backwards to insert the opening bracket at the appropriate location.
+When editing an Objective-C(++) or Objective-J file, you can type a `]` to add a message to the current line. The plug-in will automatically look backwards to insert the opening bracket at the appropriate location.
 
 # Credit
 
